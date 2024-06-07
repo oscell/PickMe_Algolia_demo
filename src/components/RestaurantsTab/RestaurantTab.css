@@ -1,0 +1,61 @@
+
+
+.branch-item {
+    width: 100%; /* Full width of the container */
+
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Ensures the image does not bleed outside the container */
+    position: relative; /* For positioning the image absolutely within this container */
+    height: 155px; /* Set a height for your item */
+    border-bottom: 1px solid #e0e0e0; /* Add a border to separate items */
+    margin: 10px 0; /* Add some margin to space items out */
+    
+}
+
+.ais-Hits-list.branch-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Or 'row', depending on your layout preference */
+    max-width: 500px;
+    margin: auto; /* Center the list */
+
+}
+
+.branch-item img {
+    width: 100%; /* Full width of the branch-item */
+    height: 100%; /* Full height of the branch-item */
+    object-fit: cover; /* Cover the container, preserving aspect ratio */
+    position: absolute; /* Position absolutely within the branch-item */
+    top: 0;
+    left: 0;
+    
+}
+
+.branch-item .image-overlay {
+    position: absolute; /* Positioned absolutely to cover the image */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    background-color: rgba(136, 124, 124, 0.4); /* Semi-transparent black for gray effect */
+    z-index: 1; /* Above the image but below the text */
+}
+
+.dish-details {
+    position: relative; /* To ensure it appears above the image */
+    z-index: 1; /* Higher than the image's z-index */
+    width: 100%; /* Full width if needed */
+}
+
+
+.branch-item h2 {
+    position: absolute; /* Absolutely position the text */
+    transform: translate(-2%, 100%); /* Offset the transform for true centering */
+    color: white; /* White color for visibility */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    font-size: 24px; /* Larger font size */
+    z-index: 2; /* Ensure it's above the image */
+    width: 100%; /* Full width to center text properly */
+    text-align: right; /* Center text alignment */
+}
