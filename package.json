@@ -7,6 +7,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "algoliasearch": "^4.23.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "instantsearch.css": "^8.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,9 +23,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build",
+    "server": "node src/backend/backend.js"
   },
-  "homepage": "https://oscell.github.io/PickMe_Algolia_demo/",
+  "homepage": "https://oscell.github.io/PickMe_demo",
   "eslintConfig": {
     "extends": [
       "react-app",
