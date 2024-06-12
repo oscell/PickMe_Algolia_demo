@@ -13,14 +13,14 @@ npm install
 
 ## Usage
 
-1. Terminal 1: Start Backend
+### 1. Terminal 1: Start Backend
 
-> When you first launch this it will generate the `.env` file. You will need to provide your **AppID** and **Search API Key**.
+> When you first launch this it will generate the `.env` file. You will need to provide your **AppID** and **Search API Key**. If this doesn't work for any reason you can also create your own `.env` file from the `.env.template` file.
 ```bash
 npm run server
 ```
 
-2. Terminal 2: Start React App
+### 2. Terminal 2: Start React App
 ```bash
 npm start
 ```
