@@ -1,5 +1,25 @@
-## PickMe_demo
+## PickMe demo
 
+The diagram bellow shows how to index and query dishes in a way that aggregates by restaurant. 
+
+Dishes are indexes with restaurants objects. Distinct is set to true, grouping by restaurantID.
+
+This is a sequence of 2 query steps:
+1. Query dishes and recieve a set of different restaurants
+
+2. Multiquery with original query filtered by restaurant and `distinct: false` to get all dishes from the restaurant.
+
+
+
+
+<img src="assets/diagram.png" alt="Workflow diagram - Fiona Carbonell" style="max-width: 650px; height: auto;">
+
+
+Bellow yo can see the preview of the app:
+
+<div style="text-align: center;">
+<img src="assets/preview.png" alt="App preview" style="max-width: 650px; max-height: 500px;">
+</div>
 
 ## Setup
 ```bash
