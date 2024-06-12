@@ -31,7 +31,6 @@ const customSearchClient = {
 // Custom hit component to display image on the right and title on the left
 function Hit({ hit }) {
 
-  
 hit._snippetResult.description.value = hit._snippetResult.description.value.replace('&lt;em&gt;', '').replace('&lt;/em&gt;', '')
 console.log('hit', hit);
 return (
@@ -50,10 +49,10 @@ return (
 }
 
 
-function ExploreOtherBranches({ num, query, restaurant_enseigne_id, setBranchFilter }) {
+function ExploreOtherBranches({ restaurant_enseigne_id, setBranchFilter }) {
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submit action
+    event.preventDefault(); 
     setBranchFilter(`restaurant.enseigne_ids:'${restaurant_enseigne_id.replace(/'/g, "\\'")}'`);
   };
 
@@ -65,10 +64,10 @@ function ExploreOtherBranches({ num, query, restaurant_enseigne_id, setBranchFil
 }
 
 
-function ResultsGroupedByRestaurantName({ id , branchFilter, setBranchFilter}, props) {
+function ResultsGroupedByRestaurantName({  branchFilter, setBranchFilter}, props) {
   const { results } = useHits(props);
 
-  const { hits, nbHits } = results;
+  const { hits } = results;
 
   console.log('hits', results.query);
 
