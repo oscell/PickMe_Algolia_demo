@@ -1,21 +1,65 @@
-const express = require('express');
-require('dotenv').config();
+const fs = require('fs');
+const readline = require('readline');
 
+// Function to check and create .env file from .env.template
+function setupEnvFile() {
+    const envPath = './.env';
+    const templatePath = './.env.template';
 
+    if (!fs.existsSync(envPath)) {
+        if (fs.existsSync(templatePath)) {
+            fs.copyFileSync(templatePath, envPath);
+            console.log('.env file created from .env.template');
 
-const algoliasearch = require('algoliasearch');
-const app = express();
-const cors = require('cors');
-app.use(cors()); // This will enable all CORS requests. For security, configure it appropriately for your needs.
-app.use(express.json());
+            const rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
 
-const algoliaAppId = process.env.APP_ID;
-const algoliaApiKey = process.env.API_KEY;
+            // Prompt for APP_ID
+            rl.question('Enter your APP_ID: ', (appId) => {
+                // Prompt for API_KEY
+                rl.question('Enter your API_KEY: ', (apiKey) => {
+                    // Write these values to the .env file
+                    const envContent = `APP_ID=${appId}\nAPI_KEY=${apiKey}\n`;
+                    fs.writeFileSync(envPath, envContent);
 
-console.log(algoliaAppId);
+                    console.log('APP_ID and API_KEY set in .env file');
+                    rl.close();
 
-const algoliaClient = algoliasearch(algoliaAppId, algoliaApiKey);
-const index = algoliaClient.initIndex('pick_me_dataset');
+                    // Continue initializing the server only after setting up the .env file
+                    startServer();
+                });
+            });
+        } else {
+            console.error('Error: .env.template file does not exist.');
+            process.exit(1);
+        }
+    } else {
+        console.log('.env file already exists.');
+        startServer();
+    }
+}
+
+// Function to start the server
+function startServer() {
+    const express = require('express');
+    require('dotenv').config();
+
+    const algoliasearch = require('algoliasearch');
+    const app = express();
+    const cors = require('cors');
+    
+    app.use(cors());
+    app.use(express.json());
+
+    const algoliaAppId = process.env.APP_ID;
+    const algoliaApiKey = process.env.API_KEY;
+
+    console.log('Using Algolia App ID:', algoliaAppId);
+
+    const algoliaClient = algoliasearch(algoliaAppId, algoliaApiKey);
+    const index = algoliaClient.initIndex('pick_me_dataset');
 
 
 app.post('/search', async ({ body }, res) => {
@@ -86,3 +130,7 @@ app.post('/search', async ({ body }, res) => {
   app.listen(4000, () => {
     console.log('Server listening on port 4000');
   });
+
+}
+
+setupEnvFile()
