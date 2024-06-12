@@ -2,7 +2,7 @@
 
 The diagram below shows how to index and query dishes in a way that aggregates by restaurant.
 
-Dishes are indexed with restaurant objects. The 'distinct' attribute is set to `true`, grouping by `restaurantID`.
+Dishes are indexed with restaurant objects. The `distinct` attribute is set to `true`, grouping by `restaurantID`.
 
 This involves a sequence of two query steps:
 1. Query dishes and receive a set of different restaurants.
