@@ -1,6 +1,6 @@
 ## PickMe Demo
 
-The diagram below shows how to index and query dishes in a way that aggregates by restaurant.
+The diagram below shows how to index and query dishes in a way that aggregates by restaurant. Using a [backend](https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/in-depth/backend-instantsearch/react/) to process the initial query used to create a multiquery that finds the dishes in each restaurant that matches the query.
 
 Dishes are indexed with restaurant objects. The `distinct` attribute is set to `true`, grouping by `restaurantID`.
 
