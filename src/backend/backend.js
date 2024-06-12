@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+
 
 
 const algoliasearch = require('algoliasearch');
@@ -7,8 +9,12 @@ const cors = require('cors');
 app.use(cors()); // This will enable all CORS requests. For security, configure it appropriately for your needs.
 app.use(express.json());
 
+const algoliaAppId = process.env.APP_ID;
+const algoliaApiKey = process.env.API_KEY;
 
-const algoliaClient = algoliasearch('C4LR07FCFH', 'e8f646c777be3683e25f189cccd36784');
+console.log(algoliaAppId);
+
+const algoliaClient = algoliasearch(algoliaAppId, algoliaApiKey);
 const index = algoliaClient.initIndex('pick_me_dataset');
 
 
