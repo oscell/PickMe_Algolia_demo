@@ -5,7 +5,7 @@ The diagram below shows how to index and query dishes in a way that aggregates b
 Dishes are indexed with restaurant objects. The `distinct` attribute is set to `true`, grouping by `restaurantID`.
 
 This involves a sequence of two query steps:
-1. Query dishes and receive a set of different restaurants.
+1. Query dishes and receive a set of different restaurants using geoloc.
 2. Multiquery with the original query filtered by restaurant and `distinct: false` to get all dishes from that restaurant.
 
 <img src="assets/diagram.png" alt="Workflow diagram - Fiona Carbonell" style="max-width: 650px; height: auto;">
