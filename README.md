@@ -14,6 +14,8 @@ npm install
 ## Usage
 
 1. Terminal 1: Start Backend
+
+> When you first launch this it will generate the `.env` file. You will need to provide your **AppID** and **Search API Key**.
 ```bash
 npm run server
 ```
