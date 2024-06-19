@@ -41,7 +41,7 @@ function setupEnvFile() {
     }
 }
 
-// Function to start the server
+
 function startServer() {
     const express = require('express');
     require('dotenv').config();
@@ -109,14 +109,8 @@ app.post('/search', async ({ body }, res) => {
           });
         }
 
-
-
 }
-
-
     res.status(200).send({results:response});
-
-    
 });
 
 
